@@ -5,6 +5,8 @@ import java.net.InetSocketAddress;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
+import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Created by charse on 17-6-20.
@@ -45,8 +47,35 @@ public class MultiplexerTimeServer implements  Runnable {
 
 
 
+
     @Override
     public void run() {
+        while (!stop){
+                try {
+                    selector.select(1000);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Set<SelectionKey>  selectionKeys = selector.selectedKeys();
+                Iterator<SelectionKey> iterable = selectionKeys.iterator();
+                SelectionKey  key = null;
 
+                while (iterable.hasNext()){
+                    key = iterable.next();
+                    iterable.remove();
+
+                }
+
+        }
+    }
+
+
+    private  void handleInput(SelectionKey key){
+        if (key.isValid()){
+            if (key.isAcceptable()){
+
+                //接受一个新的
+            }
+        }
     }
 }
