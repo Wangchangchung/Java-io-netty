@@ -70,11 +70,9 @@ public class TimeClient {
                     socket = null;
                 }
             }
-
-
+        /*
         InputStream  inputStream = new FileInputStream("D://file.txt");
         OutputStream outputStream = new FileOutputStream("/");
-
         try {
             inputStream.read();
             outputStream.write(6);
@@ -82,5 +80,7 @@ public class TimeClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
+
     }
 }
