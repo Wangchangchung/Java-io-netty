@@ -12,7 +12,7 @@ public class AsyncTimeServerHandler implements Runnable {
 
     private int port;
 
-    private CountDownLatch latch;
+    public CountDownLatch latch;
 
     AsynchronousServerSocketChannel asynchronousServerSocketChannel;
 
