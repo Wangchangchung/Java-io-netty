@@ -63,8 +63,6 @@ public class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuf
 
     }
 
-
-
     private void doWrite(String currentTime){
         // 对当前时间的合法性进行校验，如果是合法的，我
         if (currentTime != null && currentTime.trim().length() > 0){
