@@ -36,7 +36,7 @@ public class TimeClient {
            port =  Integer.valueOf(args[0]);
        }
 
-       for (int i = 0; i < 20000; i++) {
+       for (int i = 0; i < 2000; i++) {
            new Thread(new TimeClientHandle("127.0.0.1", port), "Timeclient-00" + i).start();
        }
     }
