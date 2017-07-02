@@ -1,4 +1,4 @@
-package wcc.niodemo;
+package com.wcc.niodemo;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

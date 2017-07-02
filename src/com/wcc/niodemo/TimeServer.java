@@ -1,4 +1,4 @@
-package wcc.niodemo;
+package com.wcc.niodemo;
 
 /**
  * Created by charse on 17-6-20.

@@ -1,4 +1,4 @@
-package wcc.aiodemo;
+package com.wcc.aiodemo;
 
 /**
  * Created by charse on 17-6-24.

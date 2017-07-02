@@ -1,38 +1,33 @@
-package wcc.bio;
+package com.wcc.bio2;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 
 /**
  * Created by charse on 17-6-19.
  *
- * BIO 的主要问题在于每一个新的客户端请求接入的时候，服务端
- * 必须创建一个新的线程处理新接入的客户端里，一个线程只能
- * 处理一个客户端连接，在高性能服务器应用领域，往往需要面向成千上万的
- * 并发连接，这种模型显然无法满足高性能、高并发的接入场景
+ * 由于线程池和消息队列都是有界的, 因此无论客户端并发连接数多大
+ * 他都不会导致线程个数过于膨胀或者内存溢出，相比于传统的一连接
+ * 一线程模型，是一种改良。
  *
- * 为了改进一线程一连接模型, 后来又演进出了一种通过线程池或者消息队列
- * 实现了1个或多个线程工业电源、交互智能平板、移动智能终端处理N个客户端的模型，由于它的底层机制仍然使用
- * 同步阻塞 I/O,所以被称为"伪异步"
- *
+ * 伪异步I/O 通信框架采取了线程池实现, 因此避免可为每一个请求
+ * 创建一个独立线程造成的线程资源耗尽问题, 但是由于它层的通信依然
+ * 采用同步阻塞模型，因此无法从根本上解决BIO 的问题。
  *
  */
 public class TimeClient {
 
-
-    public static  void  main(String[] args){
+    public static  void  main(String[] args) throws FileNotFoundException {
         int port  = 8080;
         String addr = "127.0.0.1";
-        if (args != null && args.length > 0){
+        if (args != null && args.length > 0) {
             try {
                 port = Integer.valueOf(args[0]);
                 addr = args[1];
-            }catch (NumberFormatException e){
+            } catch (NumberFormatException e) {
 
             }
+        }
 
             Socket socket = null;
             BufferedReader  in = null;
@@ -52,6 +47,7 @@ public class TimeClient {
             } catch (IOException e) {
                 e.printStackTrace();
             }finally {
+                //关闭操作
                 if (out != null){
                     out.close();
                     out = null;
@@ -74,7 +70,17 @@ public class TimeClient {
                     socket = null;
                 }
             }
+        /*
+        InputStream  inputStream = new FileInputStream("D://file.txt");
+        OutputStream outputStream = new FileOutputStream("/");
+        try {
+            inputStream.read();
+            outputStream.write(6);
 
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+        */
+
     }
 }

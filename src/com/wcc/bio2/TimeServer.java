@@ -1,4 +1,4 @@
-package wcc.bio2;
+package com.wcc.bio2;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

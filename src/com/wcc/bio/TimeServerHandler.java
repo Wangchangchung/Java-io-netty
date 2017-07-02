@@ -1,4 +1,4 @@
-package wcc.bio2;
+package com.wcc.bio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,29 +18,24 @@ public class TimeServerHandler implements  Runnable {
         this.socket = socket;
     }
 
-    // 线程 run 方法
     @Override
     public void run() {
         BufferedReader in = null;
         PrintWriter out = null;
 
         try {
-            // 得到输入流
             in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-            // 得到输出流
             out  = new PrintWriter(this.socket.getOutputStream(), true);
 
             String currentTime = null;
             String body = null;
-
             while (true){
                 body = in.readLine();
                 if (body ==null){
                     break;
                 }
-                //输出 请求的信息
                 System.out.println("The  time server receive order:" + body);
-                // 执行时间
+
                 currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString()
                 : "DAD ORDER";
 
@@ -48,7 +43,6 @@ public class TimeServerHandler implements  Runnable {
             }
 
         } catch (IOException e) {
-            // 出现异常就直接关闭操作。
             if (in != null){
                 try {
                     in.close();
@@ -62,6 +56,7 @@ public class TimeServerHandler implements  Runnable {
                 out = null;
             }
 
+
             if (this.socket != null){
                 try {
                     this.socket.close();
@@ -72,5 +67,7 @@ public class TimeServerHandler implements  Runnable {
             }
             e.printStackTrace();
         }
+
+
     }
 }
