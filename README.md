@@ -1,2 +1,2 @@
 # Java-io-netty
-non-blocking io
+Java non-blocking io, High concurrent programming.
