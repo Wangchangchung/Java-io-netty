@@ -56,7 +56,7 @@ public class BufferDemo {
         //此时再进行读　出现了异常
         //System.out.println(buffer.get(7));
         System.out.println("buffer.get() : limit=" + buffer.limit() +" capacity=" + buffer.capacity()
-                    +" position="+ buffer.position());
+                    +"嗯 position="+ buffer.position());
 
     }
 
