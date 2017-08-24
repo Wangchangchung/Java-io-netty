@@ -1,4 +1,5 @@
-package com.netty.timedemo;
+package com.netty.solvenlinebasedframe;
+
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,8 +9,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-
-import java.util.ArrayList;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 
 
 /**
@@ -55,6 +56,13 @@ public class TimeServer {
 
         @Override
         protected void initChannel(SocketChannel socketChannel) throws Exception {
+
+            //为了解决TCP/IP　中半包问题，我们使用Netty默认提供的多种编码器用于处理半包问题
+            //这个也是NIO框架和JDK　原生NIO API无法匹敌的
+
+            socketChannel.pipeline().addLast(new LineBasedFrameDecoder(1024));
+            socketChannel.pipeline().addLast(new StringDecoder());
+
             socketChannel.pipeline().addLast(new TimeServerHandler());
         }
     }
