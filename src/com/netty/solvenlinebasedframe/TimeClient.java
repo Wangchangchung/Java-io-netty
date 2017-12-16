@@ -16,10 +16,8 @@ import io.netty.handler.codec.string.StringDecoder;
  */
 public class TimeClient {
 
-
     public void connect(int port, String host) throws InterruptedException {
         EventLoopGroup group = new NioEventLoopGroup();
-
         try {
             Bootstrap bootstrap = new Bootstrap();
             bootstrap.group(group).channel(NioSocketChannel.class)
@@ -27,19 +25,15 @@ public class TimeClient {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
-
                             //　TCP/IP　粘包的问题
                             socketChannel.pipeline().addLast(new LineBasedFrameDecoder(1024));
                             socketChannel.pipeline().addLast(new StringDecoder());
-
-
                             socketChannel.pipeline().addLast(new TimeClientHandler());
                         }
                     });
 
             //发起异步连接操作
             ChannelFuture future = bootstrap.connect(host, port).sync();
-
             //等待客户端关闭
             future.channel().closeFuture().sync();
         }finally {

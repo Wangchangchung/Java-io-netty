@@ -39,8 +39,6 @@ public class TimeClientHandler  extends ChannelHandlerAdapter{
        /* ByteBuf buf  = (ByteBuf) msg;
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
-
-
         String body = new String(req, "utf-8");
         */
 

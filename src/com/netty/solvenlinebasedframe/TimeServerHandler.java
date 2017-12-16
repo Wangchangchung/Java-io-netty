@@ -11,6 +11,7 @@ import java.util.Date;
  * Created by charse on 17-8-24.
  */
 public class TimeServerHandler extends ChannelHandlerAdapter {
+
     private int countter;
 
     @Override
@@ -24,8 +25,6 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
                 req.length - System.getProperty("line.separator").length());
                 */
         String body = (String) msg;
-
-
 
         System.out.println("The time server receive order:" + body + "; the counter is :" +  (++countter));
 

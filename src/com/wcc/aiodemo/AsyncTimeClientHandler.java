@@ -108,8 +108,6 @@ public class AsyncTimeClientHandler  implements CompletionHandler<Void, AsyncTim
                         public void failed(Throwable exc, ByteBuffer attachment) {
                             //当读取出现异常的时候，关闭链路，同时调用CountDownLatch的countDown方法让
                             //AsyncTimeClientHandler线程执行完毕，客户端退出执行。
-
-
                             try {
                                 client.close();
                                 latch.countDown();
