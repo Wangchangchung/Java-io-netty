@@ -11,7 +11,6 @@ import java.net.Socket;
  */
 public class TimeServer {
 
-
     public  static  void  main(String[] args){
         int port = 8080;
 
@@ -55,6 +54,5 @@ public class TimeServer {
                         serverSocket = null;
                     }
                 }
-
     }
 }

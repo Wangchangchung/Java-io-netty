@@ -8,7 +8,6 @@ import java.nio.ByteBuffer;
  */
 public class BufferDemo {
 
-
     public static void  printBuffer(){
 
         //15  个字节大小的缓冲区
@@ -41,7 +40,6 @@ public class BufferDemo {
 
         }
 
-
         System.out.println("buffer.flip()之前：");
         System.out.println("limit=" + buffer.limit() +" capacity=" + buffer.capacity()
                 +" position="+ buffer.position());
@@ -59,7 +57,6 @@ public class BufferDemo {
                     +"嗯 position="+ buffer.position());
 
     }
-
 
     public static void main(String[] args){
         printBuffer();

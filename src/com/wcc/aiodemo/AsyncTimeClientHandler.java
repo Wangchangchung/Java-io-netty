@@ -13,7 +13,6 @@ import java.util.concurrent.CountDownLatch;
  */
 public class AsyncTimeClientHandler  implements CompletionHandler<Void, AsyncTimeClientHandler>, Runnable{
 
-
     private AsynchronousSocketChannel client;
 
     private String host;
@@ -33,8 +32,6 @@ public class AsyncTimeClientHandler  implements CompletionHandler<Void, AsyncTim
             e.printStackTrace();
         }
     }
-
-
 
     @Override
     public void run() {

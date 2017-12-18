@@ -22,7 +22,6 @@ import java.net.Socket;
  */
 public class TimeClient {
 
-
     public static  void  main(String[] args){
         int port  = 8080;
         String addr = "127.0.0.1";

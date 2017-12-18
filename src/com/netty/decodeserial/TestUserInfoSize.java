@@ -25,11 +25,8 @@ public class TestUserInfoSize {
         byte[] b = byteArrayOutputStream.toByteArray();
         System.out.println("JDK　serializable length is:" +  b.length);
 
-
         objectOutputStream.close();
         System.out.println("the bye array serial length is :" + userInfo.codeUser().length);
-
-
 
     }
 }

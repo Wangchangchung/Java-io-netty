@@ -5,11 +5,6 @@ package com.wcc.aiodemo;
  */
 public class TimeClient {
 
-    /*
-     *
-     *
-     * @param args
-     */
     public static  void  main(String[] args){
 
         int port = 8080;

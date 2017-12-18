@@ -13,7 +13,6 @@ public class TimeServerHandlerExecutePool {
     // 线程池
     private ExecutorService  executor;
 
-
     public TimeServerHandlerExecutePool(int maxPoolSize, int queueSize){
         //创建一个线程池
         this.executor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(),

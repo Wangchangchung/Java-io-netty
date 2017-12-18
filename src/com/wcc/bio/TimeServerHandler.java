@@ -56,7 +56,6 @@ public class TimeServerHandler implements  Runnable {
                 out = null;
             }
 
-
             if (this.socket != null){
                 try {
                     this.socket.close();
@@ -67,7 +66,5 @@ public class TimeServerHandler implements  Runnable {
             }
             e.printStackTrace();
         }
-
-
     }
 }
