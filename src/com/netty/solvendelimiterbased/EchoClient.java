@@ -38,8 +38,6 @@ public class EchoClient {
                                     new StringDecoder());
 
                             socketChannel.pipeline().addLast(new EchoClientHandler());
-
-
                         }
 
                     });
@@ -61,7 +59,6 @@ public class EchoClient {
             try {
                 port = Integer.valueOf(args[0]);
             } catch (NumberFormatException e) {
-
             }
         }
         new EchoClient().connect(port, "127.0.0.1");
