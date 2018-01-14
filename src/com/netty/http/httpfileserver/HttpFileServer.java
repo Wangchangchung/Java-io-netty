@@ -21,12 +21,14 @@ public class HttpFileServer{
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup  = new NioEventLoopGroup();
         ServerBootstrap bootstrap = new ServerBootstrap();
-        bootstrap.group(bossGroup, workGroup).channel(NioServerSocketChannel.class)
-        .childHandler(new ChannelInitializer<SocketChannel>() {
-            @Override
-            protected void initChannel(SocketChannel socketChannel) throws Exception {
+        /*
+        ServerBootstrap serverBootstrap = bootstrap.group(bossGroup, workGroup).channel(NioServerSocketChannel.class)
+                .childHandler(new ChannelInitializer<SocketChannel>() {
+                    @Override
+                    protected void initChannel(SocketChannel socketChannel) throws Exception {
 
-            }
-        });
+                    }
+                });
+                */
     }
 }

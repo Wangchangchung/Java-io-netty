@@ -24,19 +24,17 @@ public class TimeServer {
             serverSocket = new ServerSocket(port);
             System.out.println("The Server is start in port:" + port);
             Socket socket = null;
-
             while (true) {
-
                 socket = serverSocket.accept();
-                new Thread();
+                new Thread(new TimeServerHandler(socket)).start();
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
             if (serverSocket != null){
-                System.out.println("The Server is close！");
                 try {
+                    System.out.println("The Server is close！");
                     serverSocket.close();
                     serverSocket = null;
                 } catch (IOException e) {

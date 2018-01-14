@@ -22,7 +22,6 @@ public class TimeServerHandler implements  Runnable {
     public void run() {
         BufferedReader in = null;
         PrintWriter out = null;
-
         try {
             in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
             out  = new PrintWriter(this.socket.getOutputStream(), true);
@@ -35,10 +34,8 @@ public class TimeServerHandler implements  Runnable {
                     break;
                 }
                 System.out.println("The  time server receive order:" + body);
-
                 currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString()
                 : "DAD ORDER";
-
                 out.println(currentTime);
             }
 
@@ -59,12 +56,11 @@ public class TimeServerHandler implements  Runnable {
             if (this.socket != null){
                 try {
                     this.socket.close();
-                    this.socket = null;
                 } catch (IOException e1) {
                     e1.printStackTrace();
                 }
+                this.socket = null;
             }
-            e.printStackTrace();
         }
     }
 }
